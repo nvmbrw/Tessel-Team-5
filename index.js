@@ -4,6 +4,8 @@ const app = express();
 const server = require('http').Server(app);
 const os = require('os');
 const path = require('path');
+const fs = require('fs');
+
 const port = 8888;
 
 const av = require('tessel-av');
@@ -18,10 +20,13 @@ app.get('/stream', (request, response) => {
   response.redirect(camera.url);
 });
 
-const speaker = new av.Speaker();
-
-speaker.say(`
-  Hello
-`);
-
 module.exports = camera;
+
+const pictureButton = document.getElementById('camera');
+
+pictureButton.addEventListener('click', () => {
+  const capture = camera.capture();
+  capture.on('data', async data => {
+    await fs.writeFile(data, './captures/');
+  });
+});
