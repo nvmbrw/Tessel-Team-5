@@ -16,21 +16,23 @@ var i = 0;
 
 var ambient = ambientlib.use(tessel.port.B);
 var lightLevel = 0;
-app.get('/stream', (request, response) => {
-  if (lightLevel > 0.03) {
-    response.redirect(camera.url);
-  } else {
-    res.sendStatus(200);
-  }
-});
 
 ambient.on('ready', function() {
   setInterval(function() {
     ambient.getLightLevel(function(err, lightdata) {
       if (err) throw err;
       lightLevel = lightdata.toFixed(8);
+      console.log(lightLevel);
     });
   }, 500);
+});
+
+app.get('/stream', (request, response) => {
+  if (lightLevel > 0.2) {
+    response.redirect(camera.url);
+  } else {
+    response.redirect('/stream');
+  }
 });
 
 ambient.on('error', function(err) {
