@@ -1,0 +1,44 @@
+body{
+  background-color: #D3D3D3;
+  font-family: sans-serif;
+}
+
+
+h1 {
+ position: absolute;
+ top: 25px;
+ left: 42.5%;
+ font-size: 60px;
+
+}
+
+#pictureBox{
+  background-color: black;
+  position: absolute;
+  height: 600px;
+  width: 600px ;
+  top: 125px;
+  left: 32%;
+}
+
+#buttons{
+  position: absolute;
+  top: 730px;
+  left: 33.5%;
+}
+
+#camera{
+  background-color: #75daff;
+  height: 80px;
+  width: 280px;
+  font-size: 40px
+}
+
+
+#shoot{
+  background-color: #75daff;
+  height: 80px;
+  width: 280px;
+  font-size: 40px
+
+}
