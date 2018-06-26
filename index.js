@@ -17,3 +17,10 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.get('/stream', (request, response) => {
   response.redirect(camera.url);
 });
+
+
+const speaker = new av.Speaker();
+
+speaker.say(`
+  Hello
+`);
