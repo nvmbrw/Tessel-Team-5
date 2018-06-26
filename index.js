@@ -31,7 +31,7 @@ app.get('/stream', (request, response) => {
   if (lightLevel > 0.2) {
     response.redirect(camera.url);
   } else {
-    response.redirect('/stream');
+    response.redirect('/');
   }
 });
 

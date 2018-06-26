@@ -13,12 +13,4 @@
       <button id="shoot">Shoot</button>
     </div>
   </body>
-  <script>
-  const pictureButton = document.getElementById('camera');
-  pictureButton.addEventListener('click', async () => {
-  await fetch('/camera', {
-  method: 'POST'
-  })
-  });
-  </script>
 </html>
