@@ -4,8 +4,6 @@ const app = express();
 const port = 8000;
 const camera = new av.Camera();
 
-camera.capture();
+camera.capture().pipe('./photo.jpg');
 
-app.listen(port, () => {
-  console.log('Listening on port', port);
-});
+
