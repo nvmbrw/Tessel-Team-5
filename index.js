@@ -15,15 +15,22 @@ const camera = new av.Camera();
 var i = 0;
 
 var ambient = ambientlib.use(tessel.port.B);
+var lightLevel = 0;
+app.get('/stream', (request, response) => {
+  if (lightLevel > 0.03) {
+    response.redirect(camera.url);
+  } else {
+    res.sendStatus(200);
+  }
+});
 
 ambient.on('ready', function() {
-  // Get points of light and sound data.
   setInterval(function() {
     ambient.getLightLevel(function(err, lightdata) {
       if (err) throw err;
-      console.log('Light level:', lightdata.toFixed(8));
+      lightLevel = lightdata.toFixed(8);
     });
-  }, 500); // The readings will happen every .5 seconds
+  }, 500);
 });
 
 ambient.on('error', function(err) {
@@ -35,10 +42,6 @@ server.listen(port, function() {
 });
 
 app.use(express.static(path.join(__dirname, '/public')));
-
-app.get('/stream', (request, response) => {
-  response.redirect(camera.url);
-});
 
 // app.post('/camera', (req, res) => {
 //   const capture = camera.capture();
