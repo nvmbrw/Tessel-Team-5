@@ -20,13 +20,11 @@ app.get('/stream', (request, response) => {
   response.redirect(camera.url);
 });
 
-module.exports = camera;
-
-const pictureButton = document.getElementById('camera');
-
-pictureButton.addEventListener('click', () => {
+app.post('/camera', (req, res) => {
   const capture = camera.capture();
   capture.on('data', async data => {
-    await fs.writeFile(data, './captures/');
+    await fs.writeFile(path.join(__dirname, 'captures/'));
   });
 });
+
+module.exports = camera;
