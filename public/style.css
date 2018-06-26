@@ -1,44 +1,40 @@
-body{
-  background-color: #D3D3D3;
+body {
+  background-color: #d3d3d3;
   font-family: sans-serif;
 }
 
-
 h1 {
- position: absolute;
- top: 25px;
- left: 42.5%;
- font-size: 60px;
-
+  position: absolute;
+  top: 25px;
+  left: 42.5%;
+  font-size: 60px;
 }
 
-#pictureBox{
+#pictureBox {
   background-color: black;
   position: absolute;
   height: 600px;
-  width: 600px ;
+  width: 600px;
   top: 125px;
   left: 32%;
 }
 
-#buttons{
+#buttons {
   position: absolute;
   top: 730px;
   left: 33.5%;
 }
 
-#camera{
+#camera {
   background-color: #75daff;
   height: 80px;
   width: 280px;
-  font-size: 40px
+  font-size: 40px;
 }
 
-
-#shoot{
+#shoot {
   background-color: #75daff;
   height: 80px;
   width: 280px;
-  font-size: 40px
-
+  font-size: 40px;
 }

@@ -18,9 +18,10 @@ app.get('/stream', (request, response) => {
   response.redirect(camera.url);
 });
 
-
 const speaker = new av.Speaker();
 
 speaker.say(`
   Hello
 `);
+
+module.exports = camera;
