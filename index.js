@@ -10,6 +10,7 @@ const port = 8888;
 
 const av = require('tessel-av');
 const camera = new av.Camera();
+var i = 0;
 
 server.listen(port, function() {
   console.log(`http://${os.hostname()}.local:${port}`);
@@ -22,8 +23,9 @@ app.get('/stream', (request, response) => {
 
 app.post('/camera', (req, res) => {
   const capture = camera.capture();
-  capture.on('data', async data => {
-    await fs.writeFile(path.join(__dirname, 'captures/'));
+  capture.on('data', data => {
+    fs.writeFile(path.join(__dirname, `captures/image${i}`));
+    i++;
   });
 });
 
